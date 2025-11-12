@@ -1,1 +1,1 @@
-rootProject.name = "storage-api-client"
+rootProject.name = "clematis.storage.api.client"
