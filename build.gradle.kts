@@ -80,7 +80,19 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
+            groupId = "org.clematis.storage"
             artifactId = "storage-api-client"
+            version = "1.0.0"
+
+            // Add this line to use resolved versions for dependencies
+            versionMapping {
+                usage("java-api") {
+                    fromResolutionOf("runtimeClasspath")
+                }
+                usage("java-runtime") {
+                    fromResolutionResult()
+                }
+            }
         }
     }
 }
