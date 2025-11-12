@@ -1,0 +1,3 @@
+storage:
+  api:
+    url: ${baseUrl}:${mockserver.port:8080}
