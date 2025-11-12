@@ -80,9 +80,7 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-            groupId = "org.clematis.storage"
             artifactId = "storage-api-client"
-            version = "1.0.0"
         }
     }
 }
