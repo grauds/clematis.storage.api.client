@@ -1,5 +1,7 @@
 # Clematis Storage API Client (Spring Boot 3 Library)
 
+[![Publish Library](https://github.com/grauds/clematis.storage.api.client/actions/workflows/publish.yml/badge.svg)](https://github.com/grauds/clematis.storage.api.client/actions/workflows/publish.yml)
+
 A lightweight Spring Cloud OpenFeign client for integrating with the **Clematis Storage API** service.
 
 ## Features
