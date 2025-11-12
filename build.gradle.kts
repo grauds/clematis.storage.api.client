@@ -1,4 +1,5 @@
 import org.gradle.kotlin.dsl.annotationProcessor
+import java.net.URI
 
 plugins {
     id("org.springframework.boot") version "3.3.5" apply false
@@ -66,6 +67,16 @@ checkstyle {
 
 
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = URI.create("https://maven.pkg.github.com/grauds/clematis.storage.api.client")
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
+            }
+        }
+    }
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
