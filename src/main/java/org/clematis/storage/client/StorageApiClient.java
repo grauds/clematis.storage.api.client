@@ -34,9 +34,9 @@ public interface StorageApiClient {
     // ---- Storage Entities ----
     @GetMapping(value = "/api/storageEntities", produces = "application/hal+json")
     PageResponse<StorageEntity> getStorageEntitiesPaged(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size,
-            @RequestParam(required = false) List<String> sort
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "20") int size,
+        @RequestParam(required = false) List<String> sort
     );
 
     @PostMapping(value = "/api/storageEntities", consumes = "application/json", produces = "application/hal+json")
@@ -58,6 +58,9 @@ public interface StorageApiClient {
     @GetMapping(value = "/api/files/get", produces = "application/hal+json")
     List<FileMetadata> getAllFiles();
 
+    @GetMapping(value = "/api/files/getByPath", produces = "application/hal+json")
+    List<FileMetadata> getFilesByPath(@RequestParam String pathPrefix);
+
     @GetMapping(value = "/api/files/download/{id}", produces = "application/hal+json")
     FileMetadata getFile(@PathVariable("id") String id);
 
@@ -75,6 +78,9 @@ public interface StorageApiClient {
     // ---- DB Files ----
     @GetMapping(value = "/api/db/get", produces = "application/hal+json")
     List<FileMetadata> getAllDbFiles();
+
+    @GetMapping(value = "/api/db/getByPath", produces = "application/hal+json")
+    List<FileMetadata> getDbFilesByPath(@RequestParam String pathPrefix);
 
     @GetMapping(value = "/api/db/download/{id}", produces = "application/hal+json")
     FileMetadata getDbFile(@PathVariable("id") String id);
