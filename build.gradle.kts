@@ -82,7 +82,7 @@ publishing {
             from(components["java"])
             groupId = "org.clematis.storage"
             artifactId = "storage-api-client"
-            version = "1.0.0"
+            version = "1.0.1"
 
             // Add this line to use resolved versions for dependencies
             versionMapping {
