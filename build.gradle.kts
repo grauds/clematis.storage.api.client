@@ -14,7 +14,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 group = "org.clematis"
-version = "1.0.1"
+version = "1.0.2"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -80,9 +80,9 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-            groupId = "org.clematis.storage"
+            groupId = "${project.group}.storage"
             artifactId = "storage-api-client"
-            version = "1.0.1"
+            version = "${project.version}"
 
             // Add this line to use resolved versions for dependencies
             versionMapping {
