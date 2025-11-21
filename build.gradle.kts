@@ -3,7 +3,7 @@ import java.net.URI
 
 plugins {
     id("org.springframework.boot") version "3.3.5" apply false
-    id("io.spring.dependency-management") version "1.1.6"
+    id("io.spring.dependency-management") version "1.1.7"
     id("java-library")
     id("checkstyle")
     id("maven-publish")
@@ -14,7 +14,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 group = "org.clematis"
-version = "1.0.2"
+version = "1.0.2.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -41,7 +41,7 @@ the<io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension>().a
 
 dependencies {
     // ---- Feign client core ----
-    api("org.springframework.cloud:spring-cloud-starter-openfeign")
+    api("org.springframework.cloud:spring-cloud-starter-openfeign:4.3.0")
 
 // ---- Optional: Lombok ----
     compileOnly("org.projectlombok:lombok:1.18.38")
