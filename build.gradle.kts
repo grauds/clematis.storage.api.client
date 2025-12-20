@@ -14,7 +14,7 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 group = "org.clematis"
-version = "1.0.2.1"
+version = "1.0.2.2"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
