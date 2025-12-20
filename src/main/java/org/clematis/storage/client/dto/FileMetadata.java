@@ -6,6 +6,6 @@ import lombok.Data;
 public class FileMetadata {
     private String fileName;
     private String downloadUrl;
-    private String fileType;
-    private long fileSize;
+    private String contentType;
+    private long size;
 }

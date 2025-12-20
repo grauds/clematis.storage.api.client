@@ -49,16 +49,16 @@ class StorageApiClientTest {
         MultipartFile mockFile = mock(MultipartFile.class);
         FileMetadata meta = new FileMetadata();
         meta.setFileName("uploaded.png");
-        meta.setFileType("image/png");
-        meta.setFileSize(2048L);
+        meta.setContentType("image/png");
+        meta.setSize(2048L);
 
         when(client.uploadFile(eq(mockFile), eq("/images"))).thenReturn(meta);
 
         FileMetadata response = client.uploadFile(mockFile, "/images");
 
         assertEquals("uploaded.png", response.getFileName());
-        assertEquals("image/png", response.getFileType());
-        assertTrue(response.getFileSize() > 0);
+        assertEquals("image/png", response.getContentType());
+        assertTrue(response.getSize() > 0);
         verify(client).uploadFile(mockFile, "/images");
     }
 

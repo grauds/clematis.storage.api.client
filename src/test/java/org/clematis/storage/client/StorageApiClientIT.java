@@ -97,13 +97,13 @@ class StorageApiClientIT {
     void testGetAllFilesReturnsList() throws Exception {
         FileMetadata f1 = new FileMetadata();
         f1.setFileName("a.txt");
-        f1.setFileType("text/plain");
-        f1.setFileSize(123);
+        f1.setContentType("text/plain");
+        f1.setSize(123);
 
         FileMetadata f2 = new FileMetadata();
         f2.setFileName("b.txt");
-        f2.setFileType("text/plain");
-        f2.setFileSize(456);
+        f2.setContentType("text/plain");
+        f2.setSize(456);
 
         MOCK_WEB_SERVER.enqueue(new MockResponse()
             .setBody(mapper.writeValueAsString(List.of(f1, f2)))
@@ -113,7 +113,7 @@ class StorageApiClientIT {
 
         assertThat(files).hasSize(2);
         assertThat(files.get(0).getFileName()).isEqualTo("a.txt");
-        assertThat(files.get(1).getFileSize()).isEqualTo(456);
+        assertThat(files.get(1).getSize()).isEqualTo(456);
     }
 
     @SuppressWarnings("checkstyle:MagicNumber")
