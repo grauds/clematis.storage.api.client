@@ -1,4 +1,4 @@
-# Clematis Storage API Client (Spring Boot 3 Library)
+# Clematis Storage API Client
 
 [![Gradle Package](https://github.com/grauds/clematis.storage.api.client/actions/workflows/gradle-publish.yml/badge.svg?branch=master)](https://github.com/grauds/clematis.storage.api.client/actions/workflows/gradle-publish.yml)
 
@@ -8,7 +8,8 @@ A lightweight Spring Cloud OpenFeign client for integrating with the **Clematis 
 - Type-safe Feign client with DTOs
 - Unit and integration tests (MockWebServer)
 - Dockerized runtime support
-- Reusable Spring Boot 3 library (Java 17+)
+- Reusable Spring Boot 3 library (Java 21+)
+- Support for Spring Boot 2  (Java 17+)
 - CI/CD via GitHub Actions
 
 ## Usage
@@ -16,7 +17,13 @@ A lightweight Spring Cloud OpenFeign client for integrating with the **Clematis 
 Add as dependency (replace coordinates if you publish elsewhere):
 
 ```groovy
-implementation 'org.clematis.storage:storage-api-client:1.0.0'
+implementation 'org.clematis.storage:storage-api-client:1.0.3.0'
+```
+
+or 
+
+```groovy
+implementation 'org.clematis.storage:storage-api-client-spring2:1.0.3.0'
 ```
 
 In your `application.yml`:
@@ -39,12 +46,6 @@ public class FileService {
         return storageApiClient.getAllFiles();
     }
 }
-```
-
-## Docker
-
-```bash
-docker-compose up --build
 ```
 
 ## Run tests
