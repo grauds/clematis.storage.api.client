@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "org.clematis"
-version = "1.0.3.0"
+version = "1.0.3.1"
 
 java {
     toolchain {

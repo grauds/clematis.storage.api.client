@@ -63,7 +63,7 @@ public interface StorageApiClient {
     @GetMapping(value = "/api/files/getByPath", produces = "application/hal+json")
     List<FileMetadata> getFilesByPath(@RequestParam String pathPrefix);
 
-    @GetMapping(value = "/api/files/download/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @GetMapping(value = "/api/files/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     ResponseEntity<byte[]> getFile(@PathVariable("id") String id);
 
     @PostMapping(value = "/api/files/upload", consumes = "multipart/form-data", produces = "application/hal+json")
@@ -84,7 +84,7 @@ public interface StorageApiClient {
     @GetMapping(value = "/api/db/getByPath", produces = "application/hal+json")
     List<FileMetadata> getDbFilesByPath(@RequestParam String pathPrefix);
 
-    @GetMapping(value = "/api/db/download/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @GetMapping(value = "/api/db/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     ResponseEntity<byte[]> getDbFile(@PathVariable("id") String id);
 
     @PostMapping(value = "/api/db/upload", consumes = "multipart/form-data", produces = "application/hal+json")
