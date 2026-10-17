@@ -22,7 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 @FeignClient(
     name = "storageApiClient",
-    url = "${storage.api.url}"
+    url = "${storage.api.url}",
+    configuration = StorageApiClientConfiguration.class
 )
 public interface StorageApiClient {
 

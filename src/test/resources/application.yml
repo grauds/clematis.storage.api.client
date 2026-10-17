@@ -1,3 +1,8 @@
 storage:
   api:
     url: ${baseUrl}:${mockserver.port:8080}
+
+spring:
+  cloud:
+    compatibility-verifier:
+      enabled: false

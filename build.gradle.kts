@@ -2,7 +2,7 @@ import org.gradle.kotlin.dsl.annotationProcessor
 import java.net.URI
 
 plugins {
-    id("org.springframework.boot") version "3.3.5" apply false
+    id("org.springframework.boot") version "4.1.1" apply false
     id("io.spring.dependency-management") version "1.1.7"
     id("java-library")
     id("checkstyle")
@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "org.clematis"
-version = "1.0.3.1"
+version = "1.1.0"
 
 java {
     toolchain {
@@ -32,12 +32,13 @@ repositories {
 dependencyManagement {
     imports {
         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.3")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2026.0.0-M1")
     }
 }
 
 dependencies {
-    api("org.springframework.cloud:spring-cloud-starter-openfeign:4.3.0")
+    api("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.springframework.boot:spring-boot-http-converter")
 
     compileOnly("org.projectlombok:lombok:1.18.38")
     annotationProcessor("org.projectlombok:lombok:1.18.38")

@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContextInitializer;
@@ -60,6 +61,7 @@ class StorageApiClientIT {
 
     @AfterEach
     void cleanupTest() {
+        MDC.clear();
         // Make sure we've consumed all responses to avoid blocking
         int count = MOCK_WEB_SERVER.getRequestCount();
         for (int i = 0; i < count; i++) {
@@ -70,6 +72,30 @@ class StorageApiClientIT {
                 // Ignore
             }
         }
+    }
+
+    @SuppressWarnings({"checkstyle:MagicNumber", "checkstyle:MultipleStringLiterals"})
+    @Test
+    void testRequestIncludesTransactionIdHeaderWhenMdcIsSet() throws Exception {
+        MDC.put("transactionId", "tx-test-999");
+
+        MOCK_WEB_SERVER.enqueue(new MockResponse().setResponseCode(204));
+
+        storageApiClient.deleteFile("file123");
+
+        RecordedRequest recorded = MOCK_WEB_SERVER.takeRequest(1, TimeUnit.SECONDS);
+        assertThat(recorded.getHeader("X-Transaction-Id")).isEqualTo("tx-test-999");
+    }
+
+    @SuppressWarnings({"checkstyle:MagicNumber", "checkstyle:MultipleStringLiterals"})
+    @Test
+    void testRequestWithoutTransactionIdHeaderWhenMdcIsEmpty() throws Exception {
+        MOCK_WEB_SERVER.enqueue(new MockResponse().setResponseCode(204));
+
+        storageApiClient.deleteFile("file123");
+
+        RecordedRequest recorded = MOCK_WEB_SERVER.takeRequest(1, TimeUnit.SECONDS);
+        assertThat(recorded.getHeader("X-Transaction-Id")).isNull();
     }
 
     @SuppressWarnings("checkstyle:MultipleStringLiterals")

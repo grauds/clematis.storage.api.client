@@ -6,9 +6,10 @@ A lightweight Spring Cloud OpenFeign client for integrating with the **Clematis 
 
 ## Features
 - Type-safe Feign client with DTOs
+- Automatic MDC transaction ID header propagation (`X-Transaction-Id`)
 - Unit and integration tests (MockWebServer)
 - Dockerized runtime support
-- Reusable Spring Boot 3 library (Java 21+)
+- Reusable Spring Boot 4 library (Java 21+)
 - Support for Spring Boot 2  (Java 17+)
 - CI/CD via GitHub Actions
 
