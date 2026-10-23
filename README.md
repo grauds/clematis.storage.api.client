@@ -1,5 +1,6 @@
 # Clematis Storage API Client
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/license/mit-0)
 [![Gradle Package](https://github.com/grauds/clematis.storage.api.client/actions/workflows/gradle-publish.yml/badge.svg?branch=master)](https://github.com/grauds/clematis.storage.api.client/actions/workflows/gradle-publish.yml)
 
 A lightweight Spring Cloud OpenFeign client for integrating with the **Clematis Storage API** service.
