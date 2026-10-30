@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "org.clematis"
-version = "1.1.0"
+version = "1.1.1"
 
 java {
     toolchain {
@@ -32,7 +32,7 @@ repositories {
 dependencyManagement {
     imports {
         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2026.0.0-M1")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2025.1.4")
     }
 }
 
